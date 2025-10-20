@@ -1,0 +1,515 @@
+/*
+ * Multi-Store Fashion Retail Sales Analysis - Detailed Report CSS
+ * Format: A4 Portrait (210mm x 297mm)
+ * Purpose: Professional executive-ready report styling
+ * Japanese Font Support: Hiragino Sans, Yu Gothic, Meiryo
+ */
+
+/* ============================================
+   PAGE SETUP AND PRINT CONFIGURATION
+   ============================================ */
+
+@page {
+    size: A4 portrait;
+    margin: 25mm 20mm 25mm 20mm;
+
+    @bottom-center {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: 'Helvetica Neue', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+        font-size: 9pt;
+        color: #666;
+    }
+
+    @top-right {
+        content: "Multi-Store Sales Analysis | January 2024";
+        font-family: 'Helvetica Neue', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+        font-size: 8pt;
+        color: #999;
+    }
+}
+
+/* First page - no header */
+@page :first {
+    @top-right {
+        content: none;
+    }
+}
+
+/* ============================================
+   TYPOGRAPHY AND BASE STYLES
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
+    font-size: 11pt;
+    line-height: 1.7;
+    color: #2c3e50;
+    background: white;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   HEADINGS HIERARCHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica Neue', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+    font-weight: 600;
+    color: #1a252f;
+    margin-top: 0;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 24pt;
+    color: #0a4073;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10pt;
+    margin-bottom: 20pt;
+    page-break-before: always;
+}
+
+h1:first-of-type {
+    page-break-before: auto;
+    font-size: 28pt;
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 10pt;
+}
+
+h2 {
+    font-size: 18pt;
+    color: #0a4073;
+    margin-top: 25pt;
+    margin-bottom: 15pt;
+    border-left: 5px solid #3498db;
+    padding-left: 12pt;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 14pt;
+    color: #2c5f8d;
+    margin-top: 20pt;
+    margin-bottom: 12pt;
+    page-break-after: avoid;
+}
+
+h4 {
+    font-size: 12pt;
+    color: #34495e;
+    margin-top: 15pt;
+    margin-bottom: 10pt;
+    font-weight: 600;
+    page-break-after: avoid;
+}
+
+h5, h6 {
+    font-size: 11pt;
+    color: #34495e;
+    margin-top: 12pt;
+    margin-bottom: 8pt;
+    font-weight: 600;
+}
+
+/* ============================================
+   PARAGRAPHS AND TEXT BLOCKS
+   ============================================ */
+
+p {
+    margin-bottom: 12pt;
+    text-align: justify;
+    orphans: 3;
+    widows: 3;
+}
+
+strong, b {
+    font-weight: 700;
+    color: #1a252f;
+}
+
+em, i {
+    font-style: italic;
+}
+
+/* ============================================
+   LISTS
+   ============================================ */
+
+ul, ol {
+    margin: 10pt 0 15pt 20pt;
+    padding-left: 10pt;
+}
+
+li {
+    margin-bottom: 8pt;
+    line-height: 1.6;
+    orphans: 2;
+    widows: 2;
+}
+
+ul li {
+    list-style-type: disc;
+}
+
+ul ul li {
+    list-style-type: circle;
+}
+
+ol li {
+    list-style-type: decimal;
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 8pt;
+    margin-bottom: 8pt;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15pt 0;
+    font-size: 10pt;
+    page-break-inside: avoid;
+    background: white;
+}
+
+thead {
+    background: #3498db;
+    color: white;
+    font-weight: 600;
+}
+
+th {
+    padding: 10pt 12pt;
+    text-align: left;
+    font-family: 'Helvetica Neue', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    border: 1px solid #2980b9;
+}
+
+td {
+    padding: 8pt 12pt;
+    border: 1px solid #ddd;
+    line-height: 1.5;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+tbody tr:hover {
+    background-color: #e8f4f8;
+}
+
+/* Table captions */
+caption {
+    font-weight: 600;
+    padding: 8pt;
+    caption-side: top;
+    color: #2c3e50;
+    font-size: 10pt;
+}
+
+/* ============================================
+   IMAGES AND FIGURES
+   ============================================ */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20pt auto;
+    page-break-inside: avoid;
+    border: 1px solid #e0e0e0;
+    padding: 5pt;
+    background: white;
+}
+
+figure {
+    margin: 20pt 0;
+    text-align: center;
+    page-break-inside: avoid;
+}
+
+figcaption {
+    font-size: 9pt;
+    color: #666;
+    margin-top: 8pt;
+    font-style: italic;
+    text-align: center;
+}
+
+/* ============================================
+   HORIZONTAL RULES
+   ============================================ */
+
+hr {
+    border: none;
+    border-top: 2px solid #3498db;
+    margin: 25pt 0;
+    page-break-after: avoid;
+}
+
+/* ============================================
+   BLOCKQUOTES AND CALLOUTS
+   ============================================ */
+
+blockquote {
+    margin: 20pt 0 20pt 20pt;
+    padding: 15pt 20pt;
+    border-left: 4px solid #3498db;
+    background: #f0f7fb;
+    font-style: italic;
+    color: #34495e;
+    page-break-inside: avoid;
+}
+
+blockquote p {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   CODE BLOCKS (minimal use in reports)
+   ============================================ */
+
+code {
+    font-family: 'Courier New', 'Osaka-Mono', monospace;
+    background: #f5f5f5;
+    padding: 2pt 5pt;
+    border-radius: 3pt;
+    font-size: 9pt;
+    color: #d63384;
+}
+
+pre {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-left: 4px solid #999;
+    padding: 12pt;
+    margin: 15pt 0;
+    overflow-x: auto;
+    font-size: 9pt;
+    line-height: 1.4;
+    page-break-inside: avoid;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: #333;
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Print links */
+@media print {
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #666;
+    }
+
+    a[href^="#"]:after {
+        content: "";
+    }
+}
+
+/* ============================================
+   PAGE BREAKS
+   ============================================ */
+
+/* Break before major sections */
+.page-break,
+.section-break {
+    page-break-before: always;
+}
+
+/* Avoid breaks after headings */
+h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+}
+
+/* Keep tables and images together */
+table, figure, img {
+    page-break-inside: avoid;
+}
+
+/* ============================================
+   SPECIAL CONTENT BLOCKS
+   ============================================ */
+
+/* Executive summary box */
+.executive-summary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20pt;
+    margin: 20pt 0;
+    border-radius: 5pt;
+    page-break-inside: avoid;
+}
+
+.executive-summary h2 {
+    color: white;
+    border-left: 5px solid white;
+    margin-top: 0;
+}
+
+/* Key findings highlight */
+.highlight-box {
+    background: #fff9e6;
+    border: 2px solid #ffc107;
+    border-left: 6px solid #ffc107;
+    padding: 15pt;
+    margin: 15pt 0;
+    page-break-inside: avoid;
+}
+
+/* Insights callout */
+.insight {
+    background: #e8f5e9;
+    border-left: 5px solid #4caf50;
+    padding: 15pt;
+    margin: 15pt 0;
+    page-break-inside: avoid;
+}
+
+.insight strong {
+    color: #2e7d32;
+}
+
+/* Recommendations box */
+.recommendation {
+    background: #e3f2fd;
+    border-left: 5px solid #2196f3;
+    padding: 15pt;
+    margin: 15pt 0;
+    page-break-inside: avoid;
+}
+
+/* ============================================
+   METRICS AND DATA DISPLAY
+   ============================================ */
+
+.metric {
+    display: inline-block;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 10pt 15pt;
+    margin: 5pt;
+    text-align: center;
+    min-width: 120pt;
+}
+
+.metric-value {
+    font-size: 18pt;
+    font-weight: 700;
+    color: #0a4073;
+    display: block;
+}
+
+.metric-label {
+    font-size: 9pt;
+    color: #666;
+    display: block;
+    margin-top: 5pt;
+}
+
+/* ============================================
+   JAPANESE TEXT SUPPORT
+   ============================================ */
+
+/* Ensure proper rendering of Japanese characters */
+:lang(ja) {
+    font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', serif;
+    word-break: normal;
+    word-wrap: break-word;
+}
+
+h1:lang(ja), h2:lang(ja), h3:lang(ja), h4:lang(ja) {
+    font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+}
+
+/* ============================================
+   FOOTER METADATA
+   ============================================ */
+
+.report-footer {
+    margin-top: 30pt;
+    padding-top: 15pt;
+    border-top: 2px solid #ddd;
+    font-size: 9pt;
+    color: #666;
+    text-align: center;
+}
+
+/* ============================================
+   PRINT OPTIMIZATIONS
+   ============================================ */
+
+@media print {
+    body {
+        background: white;
+    }
+
+    /* Ensure colors print */
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* No underlines on links in print */
+    a {
+        text-decoration: none;
+        color: #3498db;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.no-break {
+    page-break-inside: avoid;
+}
+
+.new-page {
+    page-break-before: always;
+}
+
+.hide-in-print {
+    display: none;
+}

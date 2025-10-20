@@ -1,0 +1,11 @@
+store_id,store_name_jp,store_name_en,city,region
+S01,渋谷店,Shibuya,Tokyo,Kanto
+S02,新宿店,Shinjuku,Tokyo,Kanto
+S03,池袋店,Ikebukuro,Tokyo,Kanto
+S04,横浜店,Yokohama,Yokohama,Kanto
+S05,大阪店,Osaka,Osaka,Kansai
+S06,札幌店,Sapporo,Sapporo,Hokkaido
+S07,仙台店,Sendai,Sendai,Tohoku
+S08,名古屋店,Nagoya,Nagoya,Chubu
+S09,広島店,Hiroshima,Hiroshima,Chugoku
+S10,福岡店,Fukuoka,Fukuoka,Kyushu

@@ -1,0 +1,71 @@
+.
+├── config
+├── data
+│   ├── processed
+│   │   ├── products.csv
+│   │   ├── sales_clean.csv
+│   │   └── stores.csv
+│   └── raw
+│       ├── 01_渋谷店_売上_202401.xlsx
+│       ├── 02_新宿店_売上_202401.xlsx
+│       ├── 03_池袋店_sales_202401.csv
+│       ├── 04_横浜店_売上_202401_最終.xlsx
+│       ├── 05_大阪店_売上_202401.csv
+│       ├── 06_札幌_売上202401.xlsx
+│       ├── 07_仙台店売上(1月).xlsx
+│       ├── 08_名古屋店_202401_売上.xlsx
+│       ├── 09_広島店_売上_2024_01.csv
+│       └── 10_福岡店_売上_202401_済.xlsx
+├── docs
+│   ├── data_dictionary.md
+│   ├── data_requirements.md
+│   ├── project_flow.md
+│   ├── reporting_guide.md
+│   ├── requirements.md
+│   ├── success_criteria.md
+│   └── wbs.md
+├── logs
+├── notebooks
+│   ├── eda_executed.ipynb
+│   └── eda.ipynb
+├── reports
+│   ├── assets
+│   │   ├── category_mix_by_store.png
+│   │   ├── daily_revenue_trend.png
+│   │   ├── revenue_by_category.png
+│   │   ├── revenue_by_day_of_week.png
+│   │   ├── revenue_by_region.png
+│   │   ├── revenue_by_store.png
+│   │   ├── top_bottom_stores.png
+│   │   └── weekend_vs_weekday.png
+│   ├── analysis_report.md
+│   ├── category_performance_summary.csv
+│   ├── detailed_report.pdf
+│   ├── executive_slides.pdf
+│   ├── phase3_validation.md
+│   ├── region_performance_summary.csv
+│   └── store_performance_summary.csv
+├── src
+│   ├── analysis
+│   │   ├── __init__.py
+│   │   ├── metrics.py
+│   │   └── visualizations.py
+│   ├── data_pipeline
+│   │   ├── cleaner.py
+│   │   ├── generate_processed_data.py
+│   │   ├── loader.py
+│   │   ├── README.md
+│   │   └── validator.py
+│   └── reporting
+│       ├── templates
+│       ├── md_to_pdf_detailed.py
+│       └── md_to_pdf_slides.py
+├── tests
+│   └── test_data_quality.py
+├── CLAUDE.MD
+├── DIRECTORY_STRUCTURE.txt
+├── PROJECT_SUMMARY.md
+├── README.md
+└── requirements.txt
+
+16 directories, 53 files

@@ -1,0 +1,581 @@
+/*
+ * Multi-Store Fashion Retail Sales Analysis - Executive Slides CSS
+ * Format: 16:9 Landscape (297mm x 167mm)
+ * Purpose: High-impact executive presentation slides
+ * Design: Minimal text, maximum visual impact
+ */
+
+/* ============================================
+   SLIDE PAGE SETUP
+   ============================================ */
+
+@page {
+    size: 297mm 167mm;
+    margin: 0;
+    padding: 0;
+
+    @bottom-right {
+        content: counter(page);
+        font-family: 'Helvetica Neue', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+        font-size: 12pt;
+        color: white;
+        background: #3498db;
+        padding: 8pt 15pt;
+        margin: 15mm;
+        border-radius: 20pt;
+    }
+}
+
+/* Hide page number on title slide */
+@page :first {
+    @bottom-right {
+        content: none;
+    }
+}
+
+/* ============================================
+   BASE SLIDE STYLING
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+    background: white;
+    color: #2c3e50;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Each section becomes a slide */
+section,
+.slide {
+    width: 297mm;
+    height: 167mm;
+    padding: 30mm 40mm 25mm 40mm;
+    page-break-after: always;
+    page-break-inside: avoid;
+    position: relative;
+    display: block;
+    background: white;
+    overflow: hidden;
+}
+
+/* Last slide - no page break */
+section:last-of-type,
+.slide:last-of-type {
+    page-break-after: auto;
+}
+
+/* ============================================
+   SLIDE HEADINGS
+   ============================================ */
+
+h1 {
+    font-size: 48pt;
+    font-weight: 700;
+    color: #0a4073;
+    margin-bottom: 20mm;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: -0.5pt;
+}
+
+h2 {
+    font-size: 32pt;
+    font-weight: 700;
+    color: #0a4073;
+    margin-bottom: 10mm;
+    line-height: 1.2;
+    border-bottom: 3pt solid #3498db;
+    padding-bottom: 6mm;
+}
+
+h3 {
+    font-size: 28pt;
+    font-weight: 600;
+    color: #2c5f8d;
+    margin-bottom: 10mm;
+    line-height: 1.3;
+}
+
+h4 {
+    font-size: 22pt;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 8mm;
+}
+
+/* ============================================
+   SLIDE CONTENT - MINIMAL TEXT
+   ============================================ */
+
+p {
+    font-size: 18pt;
+    line-height: 1.6;
+    margin-bottom: 10mm;
+    max-width: 180mm;
+}
+
+/* Large body text for readability */
+.large-text {
+    font-size: 22pt;
+    line-height: 1.5;
+}
+
+/* ============================================
+   BULLET POINTS - MAX 5 PER SLIDE
+   ============================================ */
+
+ul {
+    list-style: none;
+    margin: 15mm 0;
+    padding: 0;
+}
+
+li {
+    font-size: 18pt;
+    line-height: 1.5;
+    margin-bottom: 8mm;
+    padding-left: 25mm;
+    position: relative;
+}
+
+/* Custom bullet styling */
+li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    font-size: 28pt;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Nested lists - avoid in slides */
+ul ul li {
+    font-size: 18pt;
+    margin-bottom: 8mm;
+    padding-left: 25mm;
+}
+
+ul ul li:before {
+    content: "•";
+    font-size: 20pt;
+}
+
+/* Numbered lists */
+ol {
+    list-style: none;
+    counter-reset: slide-counter;
+    margin: 15mm 0;
+    padding: 0;
+}
+
+ol li {
+    counter-increment: slide-counter;
+    font-size: 20pt;
+    line-height: 1.6;
+    margin-bottom: 12mm;
+    padding-left: 30mm;
+    position: relative;
+}
+
+ol li:before {
+    content: counter(slide-counter);
+    position: absolute;
+    left: 0;
+    width: 20mm;
+    height: 20mm;
+    background: #3498db;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20mm;
+    font-weight: 700;
+    font-size: 18pt;
+}
+
+/* ============================================
+   IMAGES - MAXIMIZE VISUAL IMPACT
+   ============================================ */
+
+img {
+    max-width: 100%;
+    max-height: 65mm;
+    display: block;
+    margin: 6mm auto;
+    border: none;
+    box-shadow: 0 3pt 10pt rgba(0, 0, 0, 0.1);
+    page-break-inside: avoid;
+}
+
+/* Full-width images for charts */
+.chart-image,
+.full-width-image {
+    max-width: 100%;
+    max-height: 70mm;
+    width: auto;
+    margin: 8mm auto;
+}
+
+/* Side-by-side images */
+.image-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 10mm;
+    margin: 15mm 0;
+}
+
+.image-grid img {
+    max-width: 48%;
+    max-height: 70mm;
+}
+
+/* ============================================
+   TABLES - SIMPLIFIED FOR SLIDES
+   ============================================ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15mm 0;
+    font-size: 16pt;
+}
+
+th {
+    background: #3498db;
+    color: white;
+    padding: 10mm 12mm;
+    text-align: left;
+    font-weight: 700;
+    font-size: 18pt;
+    border: none;
+}
+
+td {
+    padding: 8mm 12mm;
+    border-bottom: 1pt solid #e0e0e0;
+    font-size: 16pt;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Highlight row */
+tr.highlight {
+    background-color: #fff9e6;
+    font-weight: 600;
+}
+
+/* ============================================
+   TITLE SLIDE LAYOUT
+   ============================================ */
+
+.title-slide {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    justify-content: center;
+    padding: 50mm;
+}
+
+.title-slide h1 {
+    font-size: 56pt;
+    color: white;
+    margin-bottom: 15mm;
+    border: none;
+}
+
+.title-slide .subtitle {
+    font-size: 28pt;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20mm;
+    font-weight: 400;
+}
+
+.title-slide .meta {
+    font-size: 18pt;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    margin-top: 10mm;
+}
+
+/* ============================================
+   EXECUTIVE SUMMARY SLIDE
+   ============================================ */
+
+.summary-slide {
+    background: linear-gradient(to right, #0a4073 0%, #3498db 100%);
+    color: white;
+}
+
+.summary-slide h2 {
+    color: white;
+    border-bottom-color: white;
+}
+
+.summary-slide li {
+    color: white;
+    font-size: 22pt;
+}
+
+.summary-slide li:before {
+    color: #ffc107;
+}
+
+/* ============================================
+   KEY FINDING SLIDE LAYOUT
+   ============================================ */
+
+.finding-slide {
+    background: white;
+}
+
+.finding-slide h2 {
+    font-size: 32pt;
+    margin-bottom: 20mm;
+}
+
+/* Split layout: text left, chart right */
+.split-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15mm;
+}
+
+.split-layout .content {
+    flex: 1;
+}
+
+.split-layout .visual {
+    flex: 1.2;
+}
+
+.split-layout img {
+    max-width: 100%;
+    max-height: 85mm;
+    margin: 0;
+}
+
+/* ============================================
+   DATA HIGHLIGHT BOXES
+   ============================================ */
+
+.stat-box {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    padding: 15mm 20mm;
+    border-radius: 8pt;
+    text-align: center;
+    margin: 10mm auto;
+    box-shadow: 0 4pt 12pt rgba(0, 0, 0, 0.15);
+}
+
+.stat-box .number {
+    font-size: 48pt;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5mm;
+}
+
+.stat-box .label {
+    font-size: 20pt;
+    font-weight: 400;
+    opacity: 0.95;
+}
+
+/* Grid of stat boxes */
+.stat-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 10mm;
+    margin: 15mm 0;
+}
+
+.stat-grid .stat-box {
+    flex: 1;
+    margin: 0;
+}
+
+.stat-grid .stat-box .number {
+    font-size: 40pt;
+}
+
+.stat-grid .stat-box .label {
+    font-size: 16pt;
+}
+
+/* ============================================
+   RECOMMENDATION SLIDE
+   ============================================ */
+
+.recommendation-slide {
+    background: #f8f9fa;
+}
+
+.recommendation-slide h2 {
+    color: #2e7d32;
+    border-bottom-color: #4caf50;
+}
+
+.recommendation-slide li:before {
+    color: #4caf50;
+}
+
+/* Action items with priority */
+.priority-high {
+    border-left: 8pt solid #e74c3c;
+    padding-left: 15mm;
+    margin-bottom: 10mm;
+}
+
+.priority-medium {
+    border-left: 8pt solid #f39c12;
+    padding-left: 15mm;
+    margin-bottom: 10mm;
+}
+
+.priority-low {
+    border-left: 8pt solid #95a5a6;
+    padding-left: 15mm;
+    margin-bottom: 10mm;
+}
+
+/* ============================================
+   CLOSING SLIDE
+   ============================================ */
+
+.closing-slide {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+.closing-slide h2 {
+    color: white;
+    font-size: 42pt;
+    border: none;
+    margin-bottom: 20mm;
+}
+
+.closing-slide p {
+    font-size: 24pt;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 auto;
+}
+
+/* ============================================
+   HORIZONTAL RULES
+   ============================================ */
+
+hr {
+    border: none;
+    border-top: 3pt solid #3498db;
+    margin: 15mm 0;
+    width: 80mm;
+}
+
+/* ============================================
+   EMPHASIS AND HIGHLIGHTING
+   ============================================ */
+
+strong, b {
+    font-weight: 700;
+    color: #0a4073;
+}
+
+em, i {
+    font-style: italic;
+    color: #2c5f8d;
+}
+
+.highlight {
+    background: #fff9e6;
+    padding: 2mm 5mm;
+    border-radius: 3pt;
+    font-weight: 600;
+    color: #f57c00;
+}
+
+/* ============================================
+   JAPANESE TEXT SUPPORT
+   ============================================ */
+
+:lang(ja) {
+    font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+}
+
+/* ============================================
+   SLIDE BRANDING FOOTER
+   ============================================ */
+
+.slide-footer {
+    position: absolute;
+    bottom: 15mm;
+    left: 50mm;
+    right: 50mm;
+    font-size: 12pt;
+    color: #95a5a6;
+    border-top: 1pt solid #e0e0e0;
+    padding-top: 5mm;
+    text-align: center;
+}
+
+/* ============================================
+   PRINT OPTIMIZATIONS
+   ============================================ */
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    body {
+        background: white;
+    }
+
+    section, .slide {
+        page-break-after: always;
+        page-break-inside: avoid;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-center {
+    text-align: center;
+}
+
+.text-large {
+    font-size: 26pt;
+}
+
+.text-small {
+    font-size: 16pt;
+}
+
+.mb-large {
+    margin-bottom: 20mm;
+}
+
+.mb-medium {
+    margin-bottom: 15mm;
+}
+
+.mb-small {
+    margin-bottom: 10mm;
+}
+
+.no-break {
+    page-break-inside: avoid;
+}
