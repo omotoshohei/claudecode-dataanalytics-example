@@ -174,6 +174,39 @@ def add_table_to_doc(doc, rows):
     doc.add_paragraph()  # Add spacing after table
 
 
+def add_formatted_text(paragraph, text):
+    """
+    Add text to a paragraph with proper bold formatting.
+
+    Parses text for **bold** markers and applies actual bold formatting
+    instead of leaving the ** markers visible.
+
+    Args:
+        paragraph: The paragraph object to add text to
+        text: Text string that may contain **bold** markers
+    """
+    if '**' not in text:
+        # No formatting needed, just add the text
+        paragraph.add_run(text)
+        return
+
+    # Split text by bold markers, keeping the markers in the result
+    parts = re.split(r'(\*\*[^*]+\*\*)', text)
+
+    for part in parts:
+        if not part:  # Skip empty parts
+            continue
+
+        if part.startswith('**') and part.endswith('**') and len(part) > 4:
+            # This is bold text - remove markers and apply bold formatting
+            bold_text = part[2:-2]  # Remove ** from both ends
+            run = paragraph.add_run(bold_text)
+            run.bold = True
+        else:
+            # Regular text
+            paragraph.add_run(part)
+
+
 def convert_markdown_to_docx(md_path, output_path, assets_dir):
     """
     Convert Markdown file to Word document.
@@ -272,7 +305,10 @@ def convert_markdown_to_docx(md_path, output_path, assets_dir):
             match = re.match(r'!\[(.*?)\]\((.*?)\)', line)
             if match:
                 alt_text, img_path = match.groups()
-                full_img_path = Path(assets_dir) / img_path.replace('assets/', '')
+
+                # Construct full image path
+                # assets_dir is already set to reports/, so assets/image.png becomes reports/assets/image.png
+                full_img_path = Path(assets_dir) / img_path
 
                 if full_img_path.exists():
                     doc.add_paragraph(alt_text, style='Heading 4')
@@ -281,6 +317,9 @@ def convert_markdown_to_docx(md_path, output_path, assets_dir):
                     run = p.add_run()
                     run.add_picture(str(full_img_path), width=Inches(5.5))
                     doc.add_paragraph()  # Spacing after image
+                else:
+                    # Fallback if image not found
+                    doc.add_paragraph(f"[Image: {alt_text} - File not found: {img_path}]")
 
         # Tables (start)
         elif line.startswith('|') and not in_table:
@@ -303,28 +342,20 @@ def convert_markdown_to_docx(md_path, output_path, assets_dir):
         # Bullet lists
         elif re.match(r'^\d+\.\s', line):  # Numbered list
             text = re.sub(r'^\d+\.\s', '', line)
-            p = doc.add_paragraph(text, style='List Number')
+            p = doc.add_paragraph(style='List Number')
+            add_formatted_text(p, text)
             p.paragraph_format.left_indent = Inches(0.5)
 
         elif line.startswith('- '):
             text = line[2:].strip()
-            p = doc.add_paragraph(text, style='List Bullet')
+            p = doc.add_paragraph(style='List Bullet')
+            add_formatted_text(p, text)
             p.paragraph_format.left_indent = Inches(0.5)
 
-        # Bold text
-        elif '**' in line:
-            p = doc.add_paragraph()
-            parts = re.split(r'(\*\*.*?\*\*)', line)
-            for part in parts:
-                if part.startswith('**') and part.endswith('**'):
-                    run = p.add_run(part[2:-2])
-                    run.bold = True
-                else:
-                    p.add_run(part)
-
-        # Normal paragraph
+        # Normal paragraph (with potential bold formatting)
         else:
-            doc.add_paragraph(line.strip())
+            p = doc.add_paragraph()
+            add_formatted_text(p, line.strip())
 
         i += 1
 
